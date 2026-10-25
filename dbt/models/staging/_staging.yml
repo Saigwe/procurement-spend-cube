@@ -1,0 +1,27 @@
+version: 2
+models:
+- name: stg_bronze__suppliers
+  columns:
+  - name: supplier_id
+    data_tests:
+    - unique
+    - not_null
+- name: stg_bronze__taxonomy_rules
+  columns:
+  - name: keyword
+    data_tests:
+    - unique
+    - not_null
+- name: stg_bronze__spend_lines
+  columns:
+  - name: line_id
+    data_tests:
+    - unique
+    - not_null
+  - name: supplier_id
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('stg_bronze__suppliers')
+          field: supplier_id

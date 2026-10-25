@@ -1,0 +1,22 @@
+name: procurement_spend_cube
+version: 0.1.0
+config-version: 2
+profile: procurement_spend_cube
+model-paths:
+- models
+macro-paths:
+- macros
+test-paths:
+- tests
+target-path: target
+clean-targets:
+- target
+- dbt_packages
+models:
+  procurement_spend_cube:
+    staging:
+      +schema: silver
+      +materialized: view
+    marts:
+      +schema: gold
+      +materialized: table

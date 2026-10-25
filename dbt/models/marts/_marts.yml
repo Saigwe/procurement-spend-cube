@@ -1,0 +1,17 @@
+version: 2
+models:
+  - name: fct_spend_line
+    columns:
+      - name: line_id
+        data_tests: [unique, not_null]
+      - name: category
+        description: Null means no taxonomy rule matched.
+  - name: rpt_supplier_pareto
+    columns:
+      - name: supplier_id
+        data_tests: [unique, not_null]
+  - name: rpt_spend_cube
+    data_tests:
+      - unique_combination:
+          arguments:
+            columns: [category, sub_category, quarter_start]

@@ -1,0 +1,8 @@
+version: 2
+sources:
+- name: bronze
+  description: Raw tables, loaded by the fixture generator (CI) or the real-data loaders.
+  tables:
+  - name: suppliers
+  - name: taxonomy_rules
+  - name: spend_lines
