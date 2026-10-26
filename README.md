@@ -119,7 +119,7 @@ make fixture-all CLIENT=erp_sap           # synthetic fixture for one client ada
 - [x] Project 11 folded in: per-client adapters and a CI matrix over three clients
 - [ ] Embeddings or LLM classifier against the same PSC test set (needs an API key)
 - [ ] Payment-terms scenario: cash impact of moving terms from 30 to 45 days
-- [ ] Dashboard (Evidence.dev) and a 3-minute Loom walkthrough
+- [ ] Dashboard (Evidence.dev) and a 3-minute Loom walkthrough ([script ready](docs/walkthrough.md))
 
 ## Interview topics this project prepares
 - Spend classification and taxonomies, and how to evaluate a classifier honestly
