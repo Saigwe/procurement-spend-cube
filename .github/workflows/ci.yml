@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        client: [usaspending, erp_sap, erp_oracle]
+    name: build (${{ matrix.client }})
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -15,5 +20,5 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Fixture pipeline (synthetic fixture -> dbt build with tests)
-        run: make fixture-all
+      - name: Fixture pipeline for one client adapter (synthetic extract -> dbt seed + build with tests)
+        run: make fixture-all CLIENT=${{ matrix.client }}

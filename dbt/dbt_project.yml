@@ -1,22 +1,39 @@
 name: procurement_spend_cube
-version: 0.1.0
+version: 0.2.0
 config-version: 2
 profile: procurement_spend_cube
-model-paths:
-- models
-macro-paths:
-- macros
-test-paths:
-- tests
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
 target-path: target
-clean-targets:
-- target
-- dbt_packages
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # Which client's source adapter feeds int_spend_lines: usaspending | erp_sap | erp_oracle
+  client: usaspending
+  pareto_share: 0.80                 # suppliers outside the top 80% of spend are "tail"
+  payment_terms_days: 30             # US Prompt Payment Act: due 30 days after a proper invoice
+  annual_cost_of_capital: 0.045      # illustrative assumption for valuing payment timing
+  addressable_tail_savings: 0.05     # illustrative assumption: saving from consolidating tail spend
+
 models:
   procurement_spend_cube:
     staging:
       +schema: silver
       +materialized: view
+    intermediate:
+      +schema: silver
+      +materialized: table
     marts:
       +schema: gold
       +materialized: table
+
+seeds:
+  procurement_spend_cube:
+    +schema: ref
+    psc_categories:
+      +column_types: {psc_prefix: varchar, category: varchar, psc_group: varchar}
+    keyword_rules:
+      +column_types: {keyword: varchar, category: varchar, priority: integer}

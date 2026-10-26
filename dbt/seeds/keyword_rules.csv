@@ -1,0 +1,73 @@
+keyword,category,priority
+software,IT & telecom,10
+license,IT & telecom,10
+licence,IT & telecom,10
+server,IT & telecom,10
+laptop,IT & telecom,10
+computer,IT & telecom,10
+network,IT & telecom,10
+cloud,IT & telecom,10
+telecom,IT & telecom,10
+cyber,IT & telecom,10
+data center,IT & telecom,10
+helpdesk,IT & telecom,10
+construction,Construction & engineering,20
+construct,Construction & engineering,20
+engineering,Construction & engineering,20
+architect,Construction & engineering,20
+design-build,Construction & engineering,20
+bridge,Construction & engineering,20
+road,Construction & engineering,25
+paving,Construction & engineering,20
+dam,Construction & engineering,25
+repair,Facilities & maintenance,30
+maintenance,Facilities & maintenance,30
+janitorial,Facilities & maintenance,30
+custodial,Facilities & maintenance,30
+hvac,Facilities & maintenance,30
+roof,Facilities & maintenance,30
+utilities,Facilities & maintenance,30
+waste,Facilities & maintenance,30
+trash,Facilities & maintenance,30
+fire suppression,Environmental & land services,15
+wildfire,Environmental & land services,15
+fuels,Environmental & land services,40
+weed,Environmental & land services,15
+invasive,Environmental & land services,15
+restoration,Environmental & land services,15
+habitat,Environmental & land services,15
+seed,Environmental & land services,40
+fish,Environmental & land services,40
+wildlife,Environmental & land services,15
+forest,Environmental & land services,15
+range,Environmental & land services,45
+research,Research & development,35
+study,Professional services,40
+survey,Professional services,40
+analysis,Professional services,40
+consulting,Professional services,40
+support services,Professional services,40
+program management,Professional services,40
+training,Other services,45
+printing,Other services,45
+medical,Other services,45
+video,Other services,45
+freight,Logistics & travel,35
+shipping,Logistics & travel,35
+transport,Logistics & travel,35
+travel,Logistics & travel,35
+charter,Logistics & travel,35
+aviation,Logistics & travel,35
+helicopter,Logistics & travel,35
+lease,Leases & rentals,25
+rental,Leases & rentals,25
+vehicle,Vehicles & machinery,25
+truck,Vehicles & machinery,25
+boat,Vehicles & machinery,25
+equipment,Equipment & supplies,50
+supplies,Equipment & supplies,50
+uniform,Equipment & supplies,50
+furniture,Equipment & supplies,50
+gravel,Equipment & supplies,50
+fuel,Equipment & supplies,50
+vests,Equipment & supplies,50

@@ -1,0 +1,45 @@
+psc_prefix,category,psc_group
+A,Research & development,Research and development
+B,Professional services,Special studies and analysis
+C,Construction & engineering,Architect and engineering services
+D,IT & telecom,IT and telecom services
+E,Construction & engineering,Purchase of structures and facilities
+F,Environmental & land services,Natural resources and conservation
+G,Other services,Social services
+H,Professional services,Quality control and inspection
+J,Facilities & maintenance,Maintenance and repair of equipment
+K,Facilities & maintenance,Modification of equipment
+L,Professional services,Technical representative services
+M,Facilities & maintenance,Operation of government facilities
+N,Facilities & maintenance,Installation of equipment
+P,Other services,Salvage services
+Q,Other services,Medical services
+R,Professional services,Professional and administrative support
+S,Facilities & maintenance,Utilities and housekeeping
+T,Other services,Photo map print and publication
+U,Other services,Education and training
+V,Logistics & travel,Transportation travel and relocation
+W,Leases & rentals,Lease or rental of equipment
+X,Leases & rentals,Lease or rental of facilities
+Y,Construction & engineering,Construction of structures
+Z,Facilities & maintenance,Maintenance and alteration of real property
+1,Equipment & supplies,Weapons and ammunition
+2,Vehicles & machinery,Vehicles and components
+3,Vehicles & machinery,Machinery and equipment
+4,Equipment & supplies,Pipes valves pumps fire and safety equipment
+5,Equipment & supplies,Hardware and construction materials
+6,Equipment & supplies,Electrical and scientific instruments
+7,Equipment & supplies,Furniture office supplies and recreation
+70,IT & telecom,IT equipment and software
+7A,IT & telecom,IT products
+7B,IT & telecom,IT products
+7C,IT & telecom,IT products
+7D,IT & telecom,IT products
+7E,IT & telecom,IT products
+7F,IT & telecom,IT products
+7G,IT & telecom,IT products
+7H,IT & telecom,IT products
+7J,IT & telecom,IT products
+7K,IT & telecom,IT products
+8,Equipment & supplies,Clothing textiles and subsistence
+9,Equipment & supplies,Fuels and raw materials

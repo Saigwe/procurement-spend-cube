@@ -1,8 +1,12 @@
 version: 2
+
 sources:
-- name: bronze
-  description: Raw tables, loaded by the fixture generator (CI) or the real-data loaders.
-  tables:
-  - name: suppliers
-  - name: taxonomy_rules
-  - name: spend_lines
+  - name: bronze
+    description: Raw extracts. Only the active client's tables need to exist.
+    tables:
+      - name: contract_transactions
+        description: USAspending contract actions (ingestion/load_usaspending.py), or the CI fixture in the same format.
+      - name: sap_invoice_lines
+        description: Synthetic client extract in SAP-style column names (tests/fixtures/make_client_extracts.py).
+      - name: oracle_ap_invoices
+        description: Synthetic client extract in Oracle Payables-style column names.

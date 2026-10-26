@@ -1,17 +1,66 @@
 version: 2
+
 models:
   - name: fct_spend_line
+    description: One row per spend line with its category and how the category was decided.
     columns:
       - name: line_id
         data_tests: [unique, not_null]
-      - name: category
-        description: Null means no taxonomy rule matched.
-  - name: rpt_supplier_pareto
+      - name: category_source
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [psc code, keyword rule, unclassified]
+  - name: dim_supplier
     columns:
-      - name: supplier_id
+      - name: parent_supplier_id
         data_tests: [unique, not_null]
   - name: rpt_spend_cube
     data_tests:
       - unique_combination:
           arguments:
-            columns: [category, sub_category, quarter_start]
+            columns: [category, org_unit, fiscal_quarter]
+  - name: rpt_supplier_pareto
+    columns:
+      - name: parent_supplier_id
+        data_tests: [unique, not_null]
+  - name: rpt_category_consolidation
+    columns:
+      - name: category
+        data_tests: [unique, not_null]
+  - name: rpt_competition
+    columns:
+      - name: category
+        data_tests: [unique, not_null]
+  - name: rpt_working_capital
+    columns:
+      - name: org_unit
+        data_tests: [unique]
+
+unit_tests:
+  - name: category_takes_longest_psc_prefix_then_keywords_then_unclassified
+    model: fct_spend_line
+    given:
+      - input: ref('int_spend_lines')
+        rows:
+          - {line_id: L1, psc_code: 7B22, description: "server refresh", amount_usd: 100}
+          - {line_id: L2, psc_code: "7110", description: "office chairs", amount_usd: 50}
+          - {line_id: L3, psc_code: null, description: "Annual software licence renewal", amount_usd: 20}
+          - {line_id: L4, psc_code: null, description: "Misc item", amount_usd: -5}
+          - {line_id: L5, psc_code: null, description: "Road repair and paving", amount_usd: 10}
+      - input: ref('psc_categories')
+        rows:
+          - {psc_prefix: "7", category: Equipment & supplies}
+          - {psc_prefix: 7B, category: IT & telecom}
+      - input: ref('keyword_rules')
+        rows:
+          - {keyword: software, category: IT & telecom, priority: 10}
+          - {keyword: paving, category: Construction & engineering, priority: 20}
+          - {keyword: repair, category: Facilities & maintenance, priority: 30}
+    expect:
+      rows:
+        - {line_id: L1, category: IT & telecom, category_source: psc code, is_deobligation: false}
+        - {line_id: L2, category: Equipment & supplies, category_source: psc code, is_deobligation: false}
+        - {line_id: L3, category: IT & telecom, category_source: keyword rule, is_deobligation: false}
+        - {line_id: L4, category: Unclassified, category_source: unclassified, is_deobligation: true}
+        - {line_id: L5, category: Construction & engineering, category_source: keyword rule, is_deobligation: false}
